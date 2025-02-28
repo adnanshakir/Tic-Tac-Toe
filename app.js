@@ -3,6 +3,7 @@ let reset = document.querySelector("#reset");
 let newGameBtn = document.querySelector("#new-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
+let main = document.querySelector(".main");
 
 let turnO = true; //playerX, PLayerO
 
@@ -22,9 +23,6 @@ const  resetGame = () => {
     enabledBoxes();
 }
 
-const draw = () =>{
-  
-}
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (turnO) {
@@ -32,6 +30,7 @@ boxes.forEach((box) => {
       turnO = false;
     } else {
       box.innerText = "O";
+      box.style.color = "blue";
       turnO = true;
     }
     box.disabled = true;
@@ -55,6 +54,7 @@ const enabledBoxes = () => {
 
 const showWinner = (winner) => {
   msg.innerText = `Congratulation, Winner is ${winner}`;
+  // main.style.display = "none";
   msgContainer.classList.remove("hide");
   disabledBoxes();
 };
